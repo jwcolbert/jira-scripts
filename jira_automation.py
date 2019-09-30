@@ -12,14 +12,15 @@ import os
 menu_actions = {}
 user = os.getenv("JIRA_USER")
 password = os.getenv("JIRA_PASSWORD")
+jiraenv = os.getenv("JIRA_ENV")
 
-jira = JIRA('https://robotops-playground.atlassian.net', basic_auth=(user, password))
+jira = JIRA(jiraenv, basic_auth=(user, password))
 
 def main_menu():
     os.system('clear')
     
     print("Welcome,\n")
-    print("Please choose the menu you want to start:")
+    print("Please choose your option:")
     print("1. Create Sprints")
     print("\n0. Quit")
     choice = input(" >>  ")
@@ -45,12 +46,14 @@ def createSprints():
     print("Sprint Name Format: (Example: PI1)")
     sprint_name = input("Sprint Name Pattern: ")
     start_date = input("Start Date (MM/DD/YY): ")
-    sprint_length = input("Sprint Length in days (Ex: 13): " )
+#    sprint_length = input("Sprint Length in days (Ex: 13): " )
+    sprint_length = 13
     sprint_iterations = input("Number of sprints to generate: ")
     i = 0
     while i < int(sprint_iterations):
         if i == 0:
             sprintStart = datetime.datetime.strptime(start_date, "%m/%d/%y")
+#            sprintEnd = sprintStart + datetime.timedelta(days=int(sprint_length))
         else:
             sprintStart = sprintEnd + datetime.timedelta(days=1)
         sprintEnd = sprintStart + datetime.timedelta(days=int(sprint_length))
