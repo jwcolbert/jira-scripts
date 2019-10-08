@@ -6,14 +6,14 @@ This script requires Python3
 ## Usage
 **The following Environment Variables are required to be set prior to executing the script**
 - JIRA_USER: *Your Atlassian account username (ex: john.smith@atlassian.net)*
-- JIRA_PASSWORD: *Your Atlassian account password*
+- JIRA_TOKEN: *An Atlassian API Token*
 - JIRA_ENV: *Your Jira Cloud instance URL (ex: https://example.atlassian.net)*
 
 ```
 pip install -r requirements.txt
 export JIRA_ENV="https://example.atlassian.net"
 export JIRA_USER="john.smith@example.com"
-export JIRA_PASSWORD="xxxxxxxx"
+export JIRA_TOKEN="xxxxxxxx"
 python jira_automation.py
 ```
 

@@ -11,7 +11,7 @@ import os
 
 menu_actions = {}
 user = os.getenv("JIRA_USER")
-password = os.getenv("JIRA_PASSWORD")
+password = os.getenv("JIRA_TOKEN")
 jiraenv = os.getenv("JIRA_ENV")
 
 jira = JIRA(jiraenv, basic_auth=(user, password))
